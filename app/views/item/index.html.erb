@@ -1,0 +1,65 @@
+<div class="flash">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+</div>
+<div class="containar">
+  <div class="item-reset">
+    <%= link_to("全消去", "/item/destroy_all", {method: :post}) %>
+  </div>
+  <div class="to_boughtlist">
+    <%= link_to("購入履歴", "/item/boughtlists") %>
+  </div>
+
+<!-- 追加失敗時 -->
+<% @item.errors.full_messages.each do |message|%>
+  <div class="error_message">
+    <%= message %>
+  </div>
+<% end %>
+<!-- 商品追加 -->
+  <div class="add-items">
+    <%= form_tag("/item/create") do %>
+      <ul>
+        <li>
+          商品名
+          <input name="item" value="<%= @item.item %>">
+        </li>
+        <li>
+          価格
+          <input type="number" name="price">
+        </li>
+        <li>
+          円/g
+          <input type="number" name="pergrams">
+        </li>
+        <li>
+          <input type="submit" value="追加">
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <div class="index-items">
+    合計金額<%= @total %>
+    <%= link_to("購入", "/item/buy") %>
+    <table>
+      <tr>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>円/g</th>
+      </tr>
+      <% @items.each do |item| %>
+        <%= form_tag("/item/#{item.id}/update") do %>
+          <tr>
+            <td><%= item.item %></td>
+            <td><input type="number" name="price" value="<%= item.price %>"></td>
+            <td><input type="number" name="pergrams" value="<%= item.pergrams %>"></td>
+            <td><input type="submit" value="更新"%></td>
+            <td><%= link_to("削除", "/item/#{item.id}/destroy", {method: :post}) %></td> 
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div>

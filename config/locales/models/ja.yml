@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      Item: 品目
+　　attributes:
+      Item:
+        item: 品名
+        price: 価格
+        pergram: 円/g

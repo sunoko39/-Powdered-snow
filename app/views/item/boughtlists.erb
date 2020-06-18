@@ -1,0 +1,17 @@
+<%= link_to("履歴の消去", "/item/listdelete", {method: :post}) %>
+<table border="1">
+  <tr>
+      <td>品名</td>
+      <td>価格</td>
+      <td>円/g</td>
+      <td>購入日時</td>
+  </tr>
+  <% @boughtlists.each do |item|%>
+    <tr>
+      <td><%= item.item %></td>
+      <td><%= item.price %></td>
+      <td><%= item.pergram %></td>
+      <td><%= item.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+    </tr>
+  <% end %>
+</table>
