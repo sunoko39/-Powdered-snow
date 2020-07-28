@@ -20,27 +20,37 @@
 <!-- 商品追加 -->
   <div class="add-items">
     <%= form_tag("/item/create") do %>
-      <ul>
-        <li>
-          商品名
-          <input name="item" value="<%= @item.item %>">
-        </li>
-        <li>
-          価格
-          <input type="number" name="price">
-        </li>
-        <li>
-          円/g
-          <input type="number" name="pergrams">
-        </li>
-        <li>
-          <input type="submit" value="追加">
-        </li>
-      </ul>
+      <table>
+        <tr>
+          <td>
+            商品名
+          </td>
+          <td>
+            <input name="item" value="<%= @item.item %>">
+          </td>
+        </tr>
+        <tr>
+          <td>
+           価格
+          </td>
+          <td>
+           <input type="number" name="price">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            円/g
+          </td>
+          <td>
+            <input type="number" name="pergrams">
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="追加">
     <% end %>
   </div>
   <div class="index-items">
-    合計金額<%= @total %>
+    合計金額<%= @total %>円
     <%= link_to("購入", "/item/buy") %>
     <table>
       <tr>

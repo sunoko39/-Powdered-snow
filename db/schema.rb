@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_034858) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "item"
-    t.integer "price"
+    t.string "item", limit: 18, null: false
+    t.integer "price", default: 0, null: false
     t.integer "pergrams"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,3 +1,20 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+    box-sizing: border-box;
+  }
+
+html{
+    background-color: orange;
+}
+
+a {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+
+ul, li {
+    list-style-type: none;
+}

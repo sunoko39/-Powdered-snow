@@ -11,6 +11,12 @@ class ItemController < ApplicationController
 
   def create
     @item = Item.new(item: params[:item], price: params[:price], pergrams: params[:pergrams])
+    if @item.price == nil
+      @item.price = 0
+    end
+    if @item.pergrams == nil
+      @item.pergrams = 0
+    end
     if @item.save
       flash[:notice] = "追加しました"
       redirect_to("/item/index")
